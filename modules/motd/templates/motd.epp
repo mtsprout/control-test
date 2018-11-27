@@ -1,0 +1,10 @@
+= = = = = = = = = = = = = = = =
+<%= $facts[hostname] %>
+= = = = = = = = = = = = = = = =
+
+This system is for authorized users.  Trespassers will be violated.
+
+= = = = = = = = = = = = = = = =
+
+
+
