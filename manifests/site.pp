@@ -25,6 +25,10 @@ File { backup => false }
 # will be included in every node's catalog, *in addition* to any classes
 # specified in the console for that node.
 
+node 'linux.vm' {
+  class motd
+  class httpd
+}
 node default {
   # This is where you can declare classes for all nodes.
   # Example:

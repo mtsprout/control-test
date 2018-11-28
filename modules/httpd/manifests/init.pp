@@ -5,23 +5,23 @@ class httpd {
   }
 
   file { '/var/www/html':
-     ensure => directory,
-     owner   => 'root',
-     group   => 'root',
-     mode    => '0755',
-		 require => Package['httpd'],
+    ensure  => directory,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0755',
+    require => Package['httpd'],
   }
 
   file { '/var/www/html/index.html':
-		ensure  => present,
+    ensure  => present,
     owner   => 'root',
     group   => 'root',
     content => epp('httpd/index.html.epp'),
-		mode    => '0644',
-		require => File['/var/www/html'],
-	}
+    mode    => '0644',
+    require => File['/var/www/html'],
+  }
 
-	service { 'httpd':
-		ensure => running,
-	}
+  service { 'httpd':
+    ensure => running,
+  }
 }
