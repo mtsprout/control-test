@@ -26,8 +26,8 @@ File { backup => false }
 # specified in the console for that node.
 
 node 'linux.vm' {
-  include 'motd',
-  include 'httpd',
+  include 'motd'
+  include 'httpd'
 }
 node default {
   # This is where you can declare classes for all nodes.
