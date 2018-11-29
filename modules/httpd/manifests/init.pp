@@ -31,12 +31,12 @@ class nginx {
   }
 
   user { 'csprout':
-        ensure => 'present',
-        uid    => '1001',
-        gid    => '1001',
-        groups => 'webusers',
-        home   => '/home/csprout',
-         shell => '/bin/bash'
+    ensure     => 'present',
+    uid        => '1001',
+    gid        => '1001',
+    groups     => 'webusers',
+    home       => '/home/csprout',
+    shell      => '/bin/bash'
     managehome => 'true',
     }
 }
