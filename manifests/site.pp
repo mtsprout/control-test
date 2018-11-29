@@ -28,6 +28,7 @@ File { backup => false }
 node 'linux.vm' {
   include 'motd'
   include 'httpd'
+  include 'nginx'
 }
 node default {
   # This is where you can declare classes for all nodes.
