@@ -1,27 +1,42 @@
-class httpd {
+class nginx {
+
+  package { 'nginx':
+    ensure  => present,
+    require => Package['httpd']
+  }
 
   package { 'httpd':
-    ensure => present,
+    ensure => absent,
   }
 
-  file { '/var/www/html':
+  file { '/usr/share/nginx/html':
     ensure  => directory,
     owner   => 'root',
-    group   => 'root',
-    mode    => '0755',
-    require => Package['httpd'],
+    group   => 'webdevs',
+    mode    => '2775',
+    require => Package['nginx'],
   }
 
-  file { '/var/www/html/index.html':
-    ensure  => present,
+  file { '/usr/share/nginx/html/index.html':
+    ensure  => file,
     owner   => 'root',
-    group   => 'root',
+    group   => 'webdevs',
     content => epp('httpd/index.html.epp'),
-    mode    => '0644',
-    require => File['/var/www/html'],
+    mode    => '0664',
+    require => File['/usr/share/nginx/html'],
   }
 
-  service { 'httpd':
+  service { 'nginx':
     ensure => running,
   }
+
+  user { 'csprout':
+        ensure => 'present',
+        uid    => '1001',
+        gid    => '1001',
+        groups => 'webusers',
+        home   => '/home/csprout',
+         shell => '/bin/bash'
+    managehome => 'true',
+    }
 }
