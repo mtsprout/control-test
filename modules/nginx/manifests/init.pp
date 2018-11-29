@@ -1,8 +1,16 @@
 class nginx {
 
   package { 'nginx':
-    ensure  => present,
+    ensure  => 'present',
     require => Package['httpd']
+  }
+
+  yumrepo { 'nginx':
+    ensure    => 'present',
+    assumeyes => 'true',
+    enabled   => 'true',
+    baseurl   => 'http://nginx.org/packages/centos/$releasever/$basearch/',
+    gpgcheck  => 'false',
   }
 
   file { '/usr/share/nginx/html':
