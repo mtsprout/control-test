@@ -50,4 +50,10 @@ class nginx {
     gid    => '5000',
     before => User['csprout']
     }
+
+  group { 'csprout' :
+    ensure => 'present',
+    gid    => '1001',
+    before => User['csprout']
+  }
 }
