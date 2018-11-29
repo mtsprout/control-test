@@ -2,7 +2,7 @@ class nginx {
 
   package { 'nginx':
     ensure  => 'present',
-    require => Package['httpd']
+    require => Yumrepo['nginx'],
   }
 
   yumrepo { 'nginx':
@@ -11,6 +11,7 @@ class nginx {
     enabled   => 'true',
     baseurl   => 'http://nginx.org/packages/centos/$releasever/$basearch/',
     gpgcheck  => 'false',
+    target    => '/etc/yum.repos.d/nginx.repo'
   }
 
   file { '/usr/share/nginx/html':
