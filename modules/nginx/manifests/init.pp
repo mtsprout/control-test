@@ -15,17 +15,17 @@ class nginx {
   }
 
   file { '/usr/share/nginx/html':
-    ensure  => directory,
+    ensure  => 'directory',
     owner   => 'root',
-    group   => 'webdevs',
+    group   => 'webusers',
     mode    => '2775',
     require => Package['nginx'],
   }
 
   file { '/usr/share/nginx/html/index.html':
-    ensure  => file,
+    ensure  => 'present',
     owner   => 'root',
-    group   => 'webdevs',
+    group   => 'users',
     content => epp('httpd/index.html.epp'),
     mode    => '0664',
     require => File['/usr/share/nginx/html'],
