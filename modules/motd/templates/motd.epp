@@ -1,7 +1,6 @@
 --------------------------------
 <%= $facts[hostname] %>
 
-IPv4 Address:  <%= $facts[networking][interfaces][eth0][bindings][address] %>
 Architecture:  <%= $facts[os][architecture] %>
 
 This system is for authorized users.  Trespassers will be violated.
