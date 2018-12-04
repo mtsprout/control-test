@@ -25,8 +25,8 @@ class nginx {
   file { '/usr/share/nginx/html/index.html':
     ensure   => 'present',
     owner    => 'root',
-    groups   => 'webusers',
-    groups   => 'sudoers',
+    group    => 'webusers',
+    group    => 'sudoers',
     content  => epp('nginx/index.html.epp'),
     mode     => '0664',
     require  => File['/usr/share/nginx/html'],
