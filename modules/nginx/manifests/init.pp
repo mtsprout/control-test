@@ -23,12 +23,13 @@ class nginx {
   }
 
   file { '/usr/share/nginx/html/index.html':
-    ensure  => 'present',
-    owner   => 'root',
-    groups   => 'webusers, sudoers',
-    content => epp('httpd/index.html.epp'),
-    mode    => '0664',
-    require => File['/usr/share/nginx/html'],
+    ensure   => 'present',
+    owner    => 'root',
+    groups   => 'webusers',
+    groups   => 'sudoers,'
+    content  => epp('httpd/index.html.epp'),
+    mode     => '0664',
+    require  => File['/usr/share/nginx/html'],
   }
 
   service { 'nginx':
