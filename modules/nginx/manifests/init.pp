@@ -39,7 +39,7 @@ class nginx {
     ensure     => 'present',
     uid        => '1001',
     gid        => '1001',
-    groups     => ['webusers','sudoers'],
+    groups     => ['webusers','wheel'],
     home       => '/home/csprout',
     shell      => '/bin/bash',
     managehome => 'true',
