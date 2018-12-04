@@ -1,0 +1,14 @@
+<html>
+	<head>
+		<title>Welcome to Puppet</title>
+	</head>
+<body>
+	<h1>Congratulations!</h1>
+	<p>You have successfully deployed a template for index.html.</p>
+	<p>This node is <%= $facts[fqdn] %>.</p>
+  <p>Its short name is <%= $facts[hostname] %>.</p>
+	<p>Guess where this came from?  Yup, Git.</p>
+	<p>VSCode test.</p>
+	<p>This is the nginx page.</p>
+</body>
+</html>
