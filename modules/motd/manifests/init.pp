@@ -1,5 +1,4 @@
 class motd {
-
   file { '/etc/motd':
     ensure  => present,
     owner   => 'root',
