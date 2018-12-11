@@ -31,6 +31,15 @@ class nginx {
     require  => File['/usr/share/nginx/html'],
   }
 
+  file { '/usr/share/nginx/html/static.html':
+    ensure => present,
+    owner  => 'root',
+    group => 'webusers',
+    source => 'puppet:///modules/nginx/static.html',
+    mode => '0664',
+    require  => File['/usr/share/nginx/html'],
+   }   
+
   service { 'nginx':
     ensure => running,
   }
